@@ -1,0 +1,103 @@
+@charset "utf-8";
+*{
+	margin:0;
+	padding:0;
+	outline:none;
+	border:none;
+	box-sizing: border-box;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	font-size: 0.14rem;
+	font-weight: 400;
+	font-family: "微软雅黑";
+}
+a{
+	text-decoration:none;
+	color:#666666;
+}
+ul,ol{
+		list-style:none;
+}
+i,em{
+	font-style: initial;
+}
+img{
+	display: block;
+	max-width: 100%;
+}
+header,article,section,footer,hgroup,aside{display: block;}
+.in_left{
+	float:left;
+}
+.in_right{
+	float:right;
+}
+/*remove float*/
+.clearfix:after{
+	content:'';
+	height:0;
+	font-size:0;
+	visibility:hidden;
+	display:block;
+	clear:both;
+}
+/* exceed hidden */
+.ellipsis{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+/* 手型 */
+.pointer:hover{
+	cursor: pointer;
+	color: #1BCAC8;
+	text-decoration: underline;
+}
+.rlative{position: relative;}
+.Auto{
+	position: absolute;
+	display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em; height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+.nav-itmes li .icon{
+	position: absolute;
+	top: 18px;
+	left: 15px;
+}
+.nav-itmes li .arrow{
+	left: initial;
+	right: 10px;
+	transform: scale(.9);
+}
+/*
+ ----  导航icon大小*/
+.nav-itmes li:first-child .asideIcon{
+	transform: scale(1.1);
+}
+.nav-itmes li:last-child .asideIcon{
+	transform: scale(1.6);
+}
+.aside-nav .secondLevelNav li:first-child .icon{
+	top: 20px;left: 45px;transform: scale(1.9);
+}
+.aside-nav .secondLevelNav li:last-child .icon{
+	top: 18px;left: 45px;transform: scale(1.5);
+}

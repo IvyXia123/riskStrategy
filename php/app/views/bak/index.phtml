@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>恒大金服报表系统</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <script type='text/javascript' src='/js/jquery.min.js' charset='utf-8'></script>
+        <script src="/js/store.min.js"></script>
+        <script src="/js/jquery.cookie.js"></script>
+
+        <style>
+            body{margin:0;}
+            .page{display: none;width:100%;height:100%;position: relative}
+            .page-current{display: block;width:100%;height:100%;position: relative}
+            .test-link{font-weight: bolder;cursor:pointer;margin-bottom: 10px;display: inline-block;background-color: darkorange;width: 100px;height: 30px;line-height: 30px;text-align: center}
+            .but-wap{margin:30px 0 0 60px}
+        </style>
+        <script>
+
+            $(document).ready(function () {
+
+                $(".page-group").width($(window).width()).height($(window).height());
+                var l = String(document.location);
+                $(document).trigger("pageInit");
+                if (l.indexOf("#") > -1) {
+                    var p = l.split("#")[1];
+                    loadPage(p);
+                }
+                $("ul").on("click", function () {//事件冒泡
+                    alert(event.target.nodeName.toLowerCase());
+                });
+            });
+
+            function loadPage(url) {
+                var html = $("#" + url).html();
+                if (!html || html.length === 0) {
+                    $.ajax({
+                        url: "/pages/" + url,
+                        async: false,
+                        type: 'POST',
+                        success: function (text, status) {
+                            $("#" + url).html(text);
+                        }
+                    });
+                }
+
+                var l = String(document.location);
+                l = l.split("#")[0];
+                if (String(document.location) === l + "#" + url) {
+                    window.onhashchange();
+                } else {
+                    document.location = l + "#" + url;
+                }
+            }
+
+            window.onhashchange = function () {
+
+                var l = String(document.location);
+                l = l.split("#")[1];
+                if(!l){
+                    
+                }
+                $("#" + l).addClass("page-current").removeClass("page")
+                        .siblings().removeClass("page-current").addClass("page");
+                $("#" + l).trigger("pageInit");
+            };
+
+            $(document).on("pageInit", function (e) {//自定义
+                var t = e.target.nodeName.toLowerCase();
+                if (t !== "#document")
+                    return;
+                console.debug("pageInit 00000000000");
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div class="page-group" style="margin: 0 auto;position: relative">
+            <div id="pageIndex" class="page page-current" style="background-color:#fff">
+                <div class="but-wap"  style="display: inline-block" onclick="loadPage('aaa')"><span class="test-link">aaa-click</span></div>
+                <div class="but-wap"  style="display: inline-block" onclick="loadPage('bbb')"><span class="test-link">bbb-click</span></div>
+                <div class="content" style="margin:0;padding:0;margin-top: 20px">
+                    00000000000000
+                </div>
+                <ul>
+                    <li>aaa</li>
+                    <li>bbb</li>
+                    <li>ccc</li>
+                    <li>ddd</li>
+
+                </ul>
+            </div>
+
+            <!-- pages -->
+            <div class="page" id='aaa'></div>
+            <div class="page" id='bbb'></div>
+            <div class="page" id='ccc'></div>
+
+
+        </div>
+    </body>
+</html>

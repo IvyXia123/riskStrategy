@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1b1b1b
+        }
+
+    </style>
+    <script type="text/javascript">
+        var coords, coords1 = [],
+            coords2 = [],
+            coords3 = [];
+        var positionCoords = [];
+
+        var width = window.innerWidth - 10;
+        var height = window.innerHeight - 10;
+
+        var projection = d3.geoMercator()
+            .center([107, 31])
+            .scale(550)
+            .translate([width / 2, height / 2]);
+
+        
+
+        function drawPoint() {
+            var canvas = document.getElementsByTagName("canvas")[0];
+
+            //                canvas.setAttribute("width", height + Math.abs(width-height));
+            //                canvas.setAttribute("height", width + Math.abs(width-height));
+            canvas.setAttribute("width", width);
+            canvas.setAttribute("height", height);
+
+            if (window.innerHeight > window.innerWidth) {
+                $(canvas).css('top', (height - width) / 2);
+                $(canvas).css('left', -(height - width) / 2);
+            }
+
+            $.ajax({
+                url: "/weibo.json",
+                async: false,
+                type: 'POST',
+                success: function(text, textStatus) {
+                    //try {
+                    var time = new Date().getTime();
+                    var ccc = 0;
+                    var data = text;
+                    for (var i = 0; i < data.length; i++) {
+                        var pc = [];
+                        for (var j = 0; j < data[i].length; j += 2) {
+                            ccc++;
+                            var coor = projection([data[i][j], data[i][j + 1]]);
+                            pc.push(parseFloat(coor[0]).toFixed(3), parseFloat(coor[1]).toFixed(3));
+                        }
+                        positionCoords.push(pc);
+                    }
+                    console.info(positionCoords[0]);
+
+                    var context = d3.select("canvas").node().getContext("2d");
+                    context.beginPath();
+                    context.lineWidth = 0.5;
+                    context.strokeStyle = "#2b7fd9";
+                    for (var i = 0; i < positionCoords[0].length; i += 2) {
+                        context.moveTo(positionCoords[0][i], positionCoords[0][i + 1]);
+                        context.lineTo(parseFloat(positionCoords[0][i]) + 1, parseFloat(positionCoords[0][i + 1]) + 1);
+                        //console.info(positionCoords[0][i]+ "--" +  positionCoords[0][i+1]);
+                    }
+                    context.stroke();
+                    context.beginPath();
+                    context.strokeStyle = "#18d0d4";
+                    for (var i = 0; i < positionCoords[1].length; i += 2) {
+                        context.moveTo(positionCoords[1][i], positionCoords[1][i + 1]);
+                        context.lineTo(parseFloat(positionCoords[1][i]) + 1, parseFloat(positionCoords[1][i + 1]) + 1);
+                        //console.info(positionCoords[0][i]+ "--" +  positionCoords[0][i+1]);
+                    }
+                    context.stroke();
+
+                    context.beginPath();
+                    context.strokeStyle = "#fff";
+                    for (var i = 0; i < positionCoords[2].length; i += 2) {
+                        context.moveTo(positionCoords[2][i], positionCoords[2][i + 1]);
+                        context.lineTo(parseFloat(positionCoords[2][i]) + 1, parseFloat(positionCoords[2][i + 1]) + 1);
+                        //console.info(positionCoords[0][i]+ "--" +  positionCoords[0][i+1]);
+                    }
+                    context.stroke();
+                    //alert(new Date().getTime() - time);
+                    //                        context.moveTo(positionCoords[0][2], positionCoords[0][3]);
+                    //                        context.lineTo(parseFloat(positionCoords[0][2]) + 1, parseFloat(positionCoords[0][3]) + 1);
+                    //                        context.stroke();//345.173--278.154
+
+                    ///context.endPath();
+                    //                    } catch (e) {
+                    //                        console.error(e);
+                    //                    }
+                }
+            });
+        }
+
+        $(document).ready(function() {
+//                            $.ajax({
+//                                url: "/query/coords",
+//                                async: false,
+//                                type: 'POST',
+//                                success: function (text, textStatus) {
+//                                    //try {
+//                                    coords = JSON.parse(text).message;
+//            //                        for(var i=0;i<coords.length;i+=2){
+//            //                            coords3.push(coords[i]);
+//            //                        }
+//                                    for(var i=0;i<coords.length;i+=4){
+//                                        coords1.push(coords[i]);
+//                                    }
+//                                    for(var i=0;i<coords.length;i+=4){
+//                                        coords2.push(coords[i]);
+//                                    }
+//                                    //coords = coords3;
+//                                    //console.info(coords);
+//                                    drawPoint();
+//                                    
+//            //                    } catch (e) {
+//            //                        console.error(e);
+//            //                    }
+//                                }
+//                            });
+
+
+
+            //if (width < height) {
+            var contianer = $('#contianer');
+
+
+
+            if (height > width) {
+                contianer.css('top', (height - width) / 2);
+                contianer.css('left', -(height - width) / 2);
+
+                contianer.css('transform', 'rotate(90deg)');
+
+                contianer.css('transform-origin', '50% 50%');
+                var tmp = width;
+                width = height;
+                height = tmp;
+            }
+            contianer.width(width);
+            contianer.height(height);
+
+            //}
+            //                window.setTimeout(function(){
+            //                    
+            //                }, 3000);
+
+            drawMap();
+            drawPoint();
+
+
+        });
+
+        function drawMap() {
+
+            var svg = document.getElementsByTagName("svg")[0];
+
+            //                svg.setAttribute("width", height + Math.abs(width-height));
+            //                svg.setAttribute("height", width + Math.abs(width-height));
+            svg.setAttribute("width", width);
+            svg.setAttribute("height", height);
+            var color = d3.scaleOrdinal()
+                .range(d3.schemeCategory20);
+
+            if (window.innerHeight > window.innerWidth) {
+                $(svg).css('top', (height - width) / 2);
+                $(svg).css('left', -(height - width) / 2);
+            }
+
+            var path = d3.geoPath()
+                .projection(projection);
+
+
+            svg = d3.select("svg");
+            d3.json("/china.geojson", function(error, root) {
+
+                if (error) {
+                    return console.error(error);
+                }
+                //console.log(root.features);
+
+                svg.selectAll("path")
+                    .data(root.features)
+                    .enter()
+                    .append("path")
+                    .attr("stroke", "#5494e4")
+                    .attr("stroke-width", 1)
+                    .attr("fill", function(d, i) {
+                        //return "#2b7fd9";
+                    })
+                    .attr("d", function(d) {
+                        return path(d);
+                    })
+                    .on("mouseover", function(d, i) {
+                        d3.select(this)
+                            .attr("fill", "yellow");
+                    })
+                    .on("mouseout", function(d, i) {
+                        d3.select(this)
+                            .attr("fill", "#1b1b1b");
+                    });
+
+
+            });
+
+
+        }
+        //transform:rotate(90deg);
+
+    </script>
+
+</head>
+
+<body>
+    <div id="contianer" style="border: 3px solid red;position:absolute;overflow: hidden;">
+        <svg style="position:absolute;top:20px"></svg>
+        <canvas style="position:absolute;top:20px;z-index:2"></canvas>
+    </div>
+</body>
+
+</html>

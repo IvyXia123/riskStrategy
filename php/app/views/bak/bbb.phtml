@@ -1,0 +1,22 @@
+<div  class="but-wap" style="display: inline-block" onclick="loadPage('aaa')"><span class="test-link">aaa-click</span></div>
+<div  class="but-wap" style="display: inline-block" onclick="loadPage('bbb')"><span class="test-link">bbb-click</span></div>
+<div class="content" style="margin:0;padding:0;margin-top: 20px">
+     bbbbb
+</div>
+
+<script>
+var bbb = {}; 
+//$(document).ready(function(){
+//    console.debug("111");
+//});
+//
+//console.debug("222");    
+$(document).on("pageInit", "#bbb", function(){
+    console.debug("pageInit bbb");
+});
+//console.debug("b----44444444444");  
+
+</script>
+
+
+<input id="bbb-but" type="button"   />

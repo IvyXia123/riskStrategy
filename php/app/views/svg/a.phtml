@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <script type='text/javascript' src='/js/jquery.min.js' charset='utf-8'></script>
+        <style>
+            html,body{margin:0;padding:0}
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#aa").bind("mousedown",function(){
+                    $(this).bind("mousemove",function(e){
+                        console.debug(e);
+                    });
+                });
+                
+                $("#aa").bind("mouseup",function(e){
+                    $(this).unbind("mousemove");
+                    console.debug(e.pageX);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="aa" style="margin:100px;width:600px;height:300px;border: 1px solid #ccc">
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+        <style>
+            html,body{margin: 0;padding: 0}
+        </style>
+
+    </head>
+    <body>
+    </body>
+    <script type="text/javascript">
+        //(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
+        var sss = d3.select("body").append("svg");
+        ss = document.getElementsByTagName("svg")[0];
+
+        ss.setAttribute("width", window.innerWidth);
+        ss.setAttribute("height", window.innerHeight);
+
+        var svg = d3.select("svg"),
+                width = +svg.attr("width"),
+                height = +svg.attr("height"),
+                radius = 50;
+
+        var color = d3.scaleOrdinal()
+                .range(d3.schemeCategory20);
+
+        var circles = [{x: 500, y: 250}, {x: 900, y: 250}];
+
+        svg.selectAll("circle")
+                .data(circles)
+                .enter().append("circle")
+                .attr("cx", function (d) {
+                    return d.x;
+                })
+                .attr("cy", function (d) {
+                    return d.y;
+                })
+                .attr("r", radius)
+                .style("fill", function (d, i) {
+                    return color(i);
+                })
+                .call(d3.drag()
+                        .on("start", dragstarted)
+                        .on("drag", dragged)
+                        .on("end", dragended));
+
+        function dragstarted(d) {
+            d3.select(this).raise().classed("active", true);
+        }
+
+        function dragged(d) {
+            d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+        }
+
+        function dragended(d) {
+            d3.select(this).classed("active", false);
+        }
+
+
+        function drawCircle(context, radius) {
+            context.moveTo(radius, 0);
+            context.arc(0, 0, radius, 0, 2 * Math.PI);
+        }
+
+        //console.debug(Math.random());
+        var run = false;
+        function drawLine() {
+
+            var path = d3.path();
+
+            for (var i = 0; i < 1; i++) {
+                var ran1 = Math.floor(Math.random() * 100);
+                var ran2 = Math.floor(Math.random() * 100);
+                if (ran1 > 90) {
+                    ran1 = 180 - ran1;
+                }
+                if (ran2 < 90) {
+                    ran2 = 180 - ran2;
+                }
+                var x1 = getX(500, 50, ran1);
+                var y1 = getY(250, 50, ran1);
+                var x2 = getX(900, 50, ran2);
+                var y2 = getY(250, 50, ran2);
+                path.moveTo(x1, y1);
+                path.quadraticCurveTo(700, 100, x2, y2);
+
+                svg.data([{x: x2, y: y2}])
+                        .append("circle")
+                        .attr("cx", function (d) {
+                            return d.x;
+                        })
+                        .attr("cy", function (d) {
+                            return d.y;
+                        })
+                        .attr("r", 0)
+                        .style("fill", "#f00")
+                        .transition()
+                        .delay(2850)
+                        .duration(500)
+                        .attr("r", 5)
+                        .style("opacity", 0);
+            }
+
+            svg.append("path")
+                    .attr("stroke-width", 1)
+                    .style("fill", "none")
+                    .style("stroke", "#f00")
+                    .style("stroke-dasharray", "1000, 1000")
+                    .attr("d", path)
+                    .transition()
+                    .duration(5000)
+                    .styleTween("stroke-dashoffset", function () {
+                        return d3.interpolateNumber(1000, 500);
+                    })
+                    .transition()
+                    .delay(10000)
+                    .duration(1000)
+                    .remove();
+            path.closePath();
+        }
+
+        drawLine();
+        window.setInterval(function () {
+            if (run)
+                return;
+            run = true;
+            drawLine();
+            window.setTimeout(function () {
+                console.debug(run);
+                run = false;
+                console.debug(run);
+            }, 3000);
+        }, 2000);
+
+        // x+rcost,y+rsint
+//        var x1 = 500+50*Math.cos(90*2*Math.PI/360);
+//        var y1 = 250-50*Math.sin(90*2*Math.PI/360);
+//        console.debug(x1 + "," + y1);
+
+        function getX(cx, r, angle) {
+            //console.debug(cx+r*Math.cos(angle*2*Math.PI/360));
+            return cx + r * Math.cos(angle * 2 * Math.PI / 360);
+        }
+
+        function getY(cy, r, angle) {
+            //console.debug(cy-r*Math.sin(angle*2*Math.PI/360));
+            return cy - r * Math.sin(angle * 2 * Math.PI / 360);
+        }
+
+    </script>
+</html>

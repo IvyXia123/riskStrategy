@@ -1,0 +1,728 @@
+{
+  "final_decision": "Reject",
+  "final_score": 902,
+  "hit_rules": [
+    {
+      "decision": "Accept",
+      "id": "1166119",
+      "name": "身份证命中法院失信名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 80,
+      "uuid": ["2","3","4","5","6"]
+    },
+    {
+      "decision": "Accept",
+      "id": "1166163",
+      "name": "身份证命中犯罪通缉名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 80,
+      "uuid": "da602a37a8d24336bdb751989f6dcc50"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166175",
+      "name": "身份证命中法院执行名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 80,
+      "uuid": "9f54bcca390b476ab211daa16b5460b2"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166203",
+      "name": "身份证对应人存在助学贷款欠费历史",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 60,
+      "uuid": "ee6ee07121f24efcb423d8c982d12115"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166229",
+      "name": "身份证命中信贷逾期名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 95,
+      "uuid": "5a2df2df46cc40ef946334f268f58bcc"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166253",
+      "name": "身份证命中高风险关注名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 40,
+      "uuid": "152aa029c3fe4d949037e1d0e501c915"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166281",
+      "name": "身份证命中车辆租赁违约名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 70,
+      "uuid": "8785343b9d974e54846381b6c1ea9462"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166307",
+      "name": "身份证命中法院结案名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 40,
+      "uuid": "13d2c1582a644725bad17c4e07d3b54c"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166319",
+      "name": "身份证命中中风险关注名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 5,
+      "uuid": "8de95a52e6574ec78e08b12943bed14c"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166331",
+      "name": "身份证命中低风险关注名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 2,
+      "uuid": "6da2e8dda9e64d2ca812a47f7634e277"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166365",
+      "name": "身份证命中欠款公司法人代表名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 80,
+      "uuid": "d9c27f18cae04ac2bfda36ff464aa858"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166371",
+      "name": "身份证命中故意违章乘车名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 20,
+      "uuid": "f4154393b14c4b10b93c93105c3a753c"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166377",
+      "name": "身份证命中欠税名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 60,
+      "uuid": "dbcf01de1daa499584e142744975e986"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166383",
+      "name": "身份证命中欠税公司法人代表名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 60,
+      "uuid": "41a03c86c8a948d2b8469f642f5f08a2"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166389",
+      "name": "身份证命中信贷逾期后还款名单",
+      "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+      "score": 30,
+      "uuid": "1d85e00eaf8c49a596ca65f7693eb0f3"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166411",
+      "name": "3个月内身份证关联多个申请信息",
+      "parentUuid": "",
+      "score": 30,
+      "uuid": "74d9e4c30c1848cb9d39f2d9a5f4dc38"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166417",
+      "name": "3个月内申请人身份证作为亲属联系人身份证出现的次数大于等于2",
+      "parentUuid": "",
+      "score": 15,
+      "uuid": "3b17b925483c438a9744def0212c75fb"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166421",
+      "name": "3个月内申请人身份证作为联系人身份证出现的次数大于等于2",
+      "parentUuid": "",
+      "score": 10,
+      "uuid": "32900c3ee4c64ca69240ebfac7219ee7"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166435",
+      "name": "7天内设备或身份证或手机号申请次数过多",
+      "parentUuid": "",
+      "score": 5,
+      "uuid": "73f3c33eb4474e8dbc224e9475baeaaf"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166437",
+      "name": "1个月内设备或身份证或手机号申请次数过多",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "48851fb8471444a590d014db27070dc2"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166439",
+      "name": "3个月内设备或身份证或手机号申请次数过多",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "ef1aa08b1d55474896a145c139104f07"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166445",
+      "name": "1天内身份证使用过多设备进行申请",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "6c2fdc871d8946a19cfefbc6e245bfd2"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166447",
+      "name": "7天内身份证使用过多设备进行申请",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "49cf68b17db042f7aef0a5934f9bc7b3"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166449",
+      "name": "1个月内身份证使用过多设备进行申请",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "33b90bb4908f438fac3e4cdefdbf74fa"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166451",
+      "name": "3个月内身份证使用过多设备进行申请",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "1f8c5aafdc904321875e65e628c270b3"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166453",
+      "name": "7天内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 30,
+      "uuid": "fb1beb43b9b54a3487e7fca17fb682f0"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166455",
+      "name": "1个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "926f44016fd84bd78b25f4520d97ab6c"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166457",
+      "name": "3个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "1c522d2cc142451889f8aa0fe651ed2a"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166459",
+      "name": "3个月内申请人身份证在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "06154548f5384a4b8afe1e1c839e9fa6"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166469",
+      "name": "6个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "eefd34b5b2d04976ac636fd36ab73a96"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166471",
+      "name": "12个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "30dc9ddf2cb744a8a6a7ac6982004196"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166473",
+      "name": "18个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "59828c0e8b50431dbb347c57f99d5fe4"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166475",
+      "name": "24个月内申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "b82cb0b8ed284e678c72e55af854f194"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166477",
+      "name": "近60个月以上申请人在多个平台申请借款",
+      "parentUuid": "",
+      "score": 6,
+      "uuid": "84725fb627894aaeabf9992fd693aa5c"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166479",
+      "name": "3个月内申请人在多个平台被放款_不包含本合作方",
+      "parentUuid": "",
+      "score": 4,
+      "uuid": "3dc18fc141ee4d3389ecd6af51f7fbcf"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166483",
+      "name": "6个月内申请人在多个平台被放款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "bd463ef7a19042baa50e8f88703c0577"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166485",
+      "name": "12个月内申请人在多个平台被放款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "0d1c58a745124e6586e7f139cb531cfa"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166487",
+      "name": "18个月内申请人在多个平台被放款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "af13ec3291f24ae984fca4684f622d45"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166489",
+      "name": "24个月内申请人在多个平台被放款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "123e8a18f99744c8bcc3e016d08fca39"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166491",
+      "name": "近60个月以上申请人在多个平台被放款",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "dcfcdb8a9e5248e8a6033da44dc0407f"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166513",
+      "name": "3个月借款人身份证关联多个家庭地址",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "ae0130284b194fd4993c87d36b62ef7a"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166515",
+      "name": "3个月借款人身份证关联多个手机号",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "4a56f3edd89d4271b38b3f93a3926d0e"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166517",
+      "name": "3个月借款人身份证关联多个邮箱",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "754ef00e4f98418bb5aa63499e5c800f"
+    },
+    {
+      "decision": "Accept",
+      "id": "1166525",
+      "name": "3个月内身份证多次借款申请",
+      "parentUuid": "",
+      "score": 0,
+      "uuid": "fec30117ce7643bebce0139d7aba381b"
+    }
+  ],
+  "policy_name": "借款事件_网站",
+  "policy_set": [
+    {
+      "hit_rules": [
+        {
+          "decision": "Accept",
+          "id": "1166119",
+          "name": "身份证命中法院失信名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 80,
+          "uuid": "a88aeb74a4d840a181f4a3f6fae5d947"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166163",
+          "name": "身份证命中犯罪通缉名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 80,
+          "uuid": "da602a37a8d24336bdb751989f6dcc50"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166175",
+          "name": "身份证命中法院执行名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 80,
+          "uuid": "9f54bcca390b476ab211daa16b5460b2"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166203",
+          "name": "身份证对应人存在助学贷款欠费历史",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 60,
+          "uuid": "ee6ee07121f24efcb423d8c982d12115"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166229",
+          "name": "身份证命中信贷逾期名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 95,
+          "uuid": "5a2df2df46cc40ef946334f268f58bcc"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166253",
+          "name": "身份证命中高风险关注名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 40,
+          "uuid": "152aa029c3fe4d949037e1d0e501c915"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166281",
+          "name": "身份证命中车辆租赁违约名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 70,
+          "uuid": "8785343b9d974e54846381b6c1ea9462"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166307",
+          "name": "身份证命中法院结案名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 40,
+          "uuid": "13d2c1582a644725bad17c4e07d3b54c"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166319",
+          "name": "身份证命中中风险关注名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 5,
+          "uuid": "8de95a52e6574ec78e08b12943bed14c"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166331",
+          "name": "身份证命中低风险关注名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 2,
+          "uuid": "6da2e8dda9e64d2ca812a47f7634e277"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166365",
+          "name": "身份证命中欠款公司法人代表名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 80,
+          "uuid": "d9c27f18cae04ac2bfda36ff464aa858"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166371",
+          "name": "身份证命中故意违章乘车名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 20,
+          "uuid": "f4154393b14c4b10b93c93105c3a753c"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166377",
+          "name": "身份证命中欠税名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 60,
+          "uuid": "dbcf01de1daa499584e142744975e986"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166383",
+          "name": "身份证命中欠税公司法人代表名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 60,
+          "uuid": "41a03c86c8a948d2b8469f642f5f08a2"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166389",
+          "name": "身份证命中信贷逾期后还款名单",
+          "parentUuid": "6da3c93b49e7433aa18b91ccb62c9725",
+          "score": 30,
+          "uuid": "1d85e00eaf8c49a596ca65f7693eb0f3"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166411",
+          "name": "3个月内身份证关联多个申请信息",
+          "parentUuid": "",
+          "score": 30,
+          "uuid": "74d9e4c30c1848cb9d39f2d9a5f4dc38"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166417",
+          "name": "3个月内申请人身份证作为亲属联系人身份证出现的次数大于等于2",
+          "parentUuid": "",
+          "score": 15,
+          "uuid": "3b17b925483c438a9744def0212c75fb"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166421",
+          "name": "3个月内申请人身份证作为联系人身份证出现的次数大于等于2",
+          "parentUuid": "",
+          "score": 10,
+          "uuid": "32900c3ee4c64ca69240ebfac7219ee7"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166435",
+          "name": "7天内设备或身份证或手机号申请次数过多",
+          "parentUuid": "",
+          "score": 5,
+          "uuid": "73f3c33eb4474e8dbc224e9475baeaaf"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166437",
+          "name": "1个月内设备或身份证或手机号申请次数过多",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "48851fb8471444a590d014db27070dc2"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166439",
+          "name": "3个月内设备或身份证或手机号申请次数过多",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "ef1aa08b1d55474896a145c139104f07"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166445",
+          "name": "1天内身份证使用过多设备进行申请",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "6c2fdc871d8946a19cfefbc6e245bfd2"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166447",
+          "name": "7天内身份证使用过多设备进行申请",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "49cf68b17db042f7aef0a5934f9bc7b3"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166449",
+          "name": "1个月内身份证使用过多设备进行申请",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "33b90bb4908f438fac3e4cdefdbf74fa"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166451",
+          "name": "3个月内身份证使用过多设备进行申请",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "1f8c5aafdc904321875e65e628c270b3"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166453",
+          "name": "7天内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 30,
+          "uuid": "fb1beb43b9b54a3487e7fca17fb682f0"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166455",
+          "name": "1个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "926f44016fd84bd78b25f4520d97ab6c"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166457",
+          "name": "3个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "1c522d2cc142451889f8aa0fe651ed2a"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166459",
+          "name": "3个月内申请人身份证在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "06154548f5384a4b8afe1e1c839e9fa6"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166469",
+          "name": "6个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "eefd34b5b2d04976ac636fd36ab73a96"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166471",
+          "name": "12个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "30dc9ddf2cb744a8a6a7ac6982004196"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166473",
+          "name": "18个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "59828c0e8b50431dbb347c57f99d5fe4"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166475",
+          "name": "24个月内申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "b82cb0b8ed284e678c72e55af854f194"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166477",
+          "name": "近60个月以上申请人在多个平台申请借款",
+          "parentUuid": "",
+          "score": 6,
+          "uuid": "84725fb627894aaeabf9992fd693aa5c"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166479",
+          "name": "3个月内申请人在多个平台被放款_不包含本合作方",
+          "parentUuid": "",
+          "score": 4,
+          "uuid": "3dc18fc141ee4d3389ecd6af51f7fbcf"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166483",
+          "name": "6个月内申请人在多个平台被放款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "bd463ef7a19042baa50e8f88703c0577"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166485",
+          "name": "12个月内申请人在多个平台被放款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "0d1c58a745124e6586e7f139cb531cfa"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166487",
+          "name": "18个月内申请人在多个平台被放款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "af13ec3291f24ae984fca4684f622d45"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166489",
+          "name": "24个月内申请人在多个平台被放款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "123e8a18f99744c8bcc3e016d08fca39"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166491",
+          "name": "近60个月以上申请人在多个平台被放款",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "dcfcdb8a9e5248e8a6033da44dc0407f"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166513",
+          "name": "3个月借款人身份证关联多个家庭地址",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "ae0130284b194fd4993c87d36b62ef7a"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166515",
+          "name": "3个月借款人身份证关联多个手机号",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "4a56f3edd89d4271b38b3f93a3926d0e"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166517",
+          "name": "3个月借款人身份证关联多个邮箱",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "754ef00e4f98418bb5aa63499e5c800f"
+        },
+        {
+          "decision": "Accept",
+          "id": "1166525",
+          "name": "3个月内身份证多次借款申请",
+          "parentUuid": "",
+          "score": 0,
+          "uuid": "fec30117ce7643bebce0139d7aba381b"
+        }
+      ],
+      "policy_decision": "Reject",
+      "policy_mode": "Weighted",
+      "policy_name": "异常借款_网站",
+      "policy_score": 902,
+      "policy_uuid": "a9c25288a863413899f271dbdc636836",
+      "risk_type": "suspiciousLoan"
+    }
+  ],
+  "policy_set_name": "借款事件_网站",
+  "risk_type": "suspiciousLoan_reject",
+  "seq_id": "1509506814651625T0B5554D28386768",
+  "spend_time": 120,
+  "success": true
+}

@@ -1,0 +1,131 @@
+#chart1 .g-container{
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	overflow: hidden;
+}
+#chart1 .g-container .titleName{
+	height: 75px;
+	line-height: 75px;
+	text-indent: 160px;
+	font-size: 27px;
+	font-weight: 100;
+	color: hsla(184,100%,49%,1);
+    text-shadow: #fff 0 0 3px;
+}
+#chart1 .canvasLT,
+#chart1 .canvasRB{
+	position: absolute;
+	z-index: 0;
+	width: 85px;
+	height: 85px;
+}
+#chart1 .canvasLT:before,
+#chart1 .canvasRB:before{
+	clear: both;
+}
+#chart1 .canvasLT{
+	top: 35px;
+	left: 2px;
+}
+#chart1 .canvasRB{
+	right: 2px;
+	bottom: 2px;
+}
+#chart1 .m-warp{
+	position: relative;
+	width: calc(100% - 85px);
+	height: calc(100% - 115px);
+	border: 2px solid hsla(184,100%,49%,.3);
+	margin: 0 auto;
+	z-index: 1;
+}
+#chart1 .m-warp:after,
+#chart1 .m-warp:before{
+	position: absolute;
+	content: "";
+	border: 50px solid transparent;
+	z-index: 2;
+}
+#chart1 .m-warp:after{
+	right: -2px;
+	top: -2px;
+	border-right-color: black;
+	border-top-color: black;
+}
+#chart1 .m-warp:before{
+	left: -2px;
+	bottom: -2px;
+	border-left-color: black;
+	border-bottom-color: black;
+}
+#chart1 .canvasItems{
+	width: 100%;
+	height: 100%;
+	clear: both;
+}
+#chart1 .canvasItems .item{
+	position: relative;
+	display: block;
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+}
+#chart1 .item div{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#chart1 .item1{
+	width: 100%;
+	height: 100%;
+	padding-top: 10px;
+	padding-left: 15%;
+}
+#chart1 .item1 .itemCanvas1{
+	position: relative;
+	width: 100%;
+	height: calc(100% / 3);
+	z-index: 2;
+}
+#chart1 #item2{
+	width: 120%;
+	left: -10%;
+}
+#chart1 .item1 .itemCanvas1:nth-of-type(4){
+	position: absolute;
+	top: 0;
+	left: 85%;
+	z-index: 3;
+}
+
+#chart1 .lastItem{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 10% 5% 10% 0;
+}
+#chart1 .lastItem .lastItemChild{
+	position: relative;
+	width: 100%;
+	height: calc(100% / 3);
+}
+#chart1 .lastItem .lastItemChild:nth-of-type(4){
+	position: absolute;
+	bottom: 1px;
+	left: -60%;
+	height: 35%;
+	z-index: 2;
+}
+#chart1 .switchPage{
+	position: fixed;
+	z-index: 5;
+	width: 100px;
+	height: 100%;
+}
+#chart1 .prePage{
+	top: 0;left: 0;
+}
+#chart1 .nextPage{
+	top: 0;right: 0;
+}

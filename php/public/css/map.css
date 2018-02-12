@@ -1,0 +1,339 @@
+body{background-color:black;}
+#map .g-container{
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+}
+#map .g-nav{
+	float: left;
+	width: 11%;
+	height: 100%;
+	padding: 2%;
+	clear: right;
+	background-color: black;
+}
+#map .items{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#map .items li{
+	position: relative;
+	display: block;
+	margin-top: 5%;
+	width: 100%;
+	height: 0;
+	padding-top: 100%;
+	line-height: 0;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	font-weight: 600;
+}
+#map .items i{
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	margin-bottom: 12%;
+	width: 70%;
+	height: 70%;
+	background-position: center ; 
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#map .g-warp{
+	float: left;
+	width: 88%;
+	height: 100%;
+	background-color: black;
+}
+#map .m-title{
+	width: 100%;
+	height: auto;
+}
+#map .m-title .titleName,
+#map .m-title .titleData{
+	width: 100%;
+	text-align: center;
+	color: hsla(184,100%,49%,1);
+}
+#map .m-title .titleName{
+	padding-top: 1%;
+	font-size: 29px;
+	font-weight: 400;
+	padding-right: 10%;
+	text-shadow:white 0px 0px 3px;
+}
+#map .m-title .titleData{
+	padding-top: 1%;
+	line-height: 100%;
+	padding-right: 10%;
+	font-size: 50px;
+	font-weight: 400;
+	text-shadow:white 0px 0px 15px;
+}
+#map .m-content{
+	width: 100%;
+	height: 100%;
+	padding: 2% 3% 1% 7%;
+}
+#map .m-canvasBox{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#map .m-canvasBox:after,
+#map .m-canvasBox:before{
+	position: absolute;
+	content: "";
+	border: 50px solid transparent;
+}
+#map .m-canvasBox:after{
+	top: -2px;
+	right: -4px;
+	border-top-color:#000 ;
+	border-right-color:#000 ;
+}
+#map .m-canvasBox:before{
+	left: -2px;
+	bottom: -2px;
+	border-left-color:#000 ;
+	border-bottom-color:#000 ;
+}
+#map .m-canvasBox .b-leftTop1{
+	position: absolute;
+	width: 17vw;
+	height: 17vw;
+	background: url(/image/icon-1-1.png) no-repeat;
+	background-size:cover;
+	transform: translate(-50%,-50%);
+	z-index: 21;
+}
+#map .m-canvasBox .m-map{
+	position: relative;
+	float: left;
+	width: 78%;
+	height: 100%;
+	padding-left: 35px;
+}
+#map .map-countent{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#map .m-canvasBox .m-arcItem{
+	position: relative;
+	float: left;
+	width: 22%;
+	height: 100%;
+	z-index: 2;
+}
+
+#map .Arc{
+	position: absolute;
+	height: 0;
+	color: yellow;
+	text-align: center;
+	min-width: 115px;
+	min-height: 115px;
+}
+.arcData{
+	position: absolute;
+	display: block;
+	width: 120px;
+	height: 50px;
+	left: -110px;
+	top: 45%;
+	font-size: 15px;
+	font-weight: 500;
+}
+#map .Arc:nth-of-type(2) .arcData{
+	left: 90%;
+}
+#map .Arc:nth-of-type(1){
+	left: 50%;
+	top: 20%;
+	width: 25%;
+	padding-top: 25%;
+}
+#map .ArcCanvas{
+	position: relative;
+	width: 100%;
+	margin-top: -50%;
+	padding-top: 100%;
+}
+#map .Arc i {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin-top: calc(-50% - 16px);
+	font-size: 16px;
+}
+#map .Arc:nth-of-type(2){
+	width: 30%;
+	padding-top: 30%;
+	top: 50%;
+	left: 10%;
+}
+#map .Arc:nth-of-type(3){
+	top: 70%;
+	right: 10%;
+	width: 35%;
+	padding-top: 35%;
+	
+}
+@media all and (max-height:800px ) {
+	#map .Arc:nth-of-type(2){
+		margin-top: 0;
+	}
+	#map .Arc:nth-of-type(3){
+		margin-left: 9%;
+	}
+}
+#map .switchPage{
+	position: fixed;
+	z-index: 5;
+	width: 100px;
+	height: 100%;
+}
+#map .nextPage{
+	top: 0;right: 0;
+}
+#map .svg{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+#map .ab{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/* 波纹效果 */
+#puff{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	z-index: 10;
+}
+#puff .puff-content{
+	width: 100%;
+	height: 100%;
+	line-height: 150%;
+	overflow: hidden;
+	background-color: transparent;
+}
+.puff-content img{
+	position: absolute;
+	vertical-align: middle;
+}
+.puff-content img:nth-of-type(1){
+	top: 380px;
+	left: 629px;
+}
+
+#flicker{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 6px;
+	height: 6px;
+	margin: auto;
+	z-index: 9999;
+	border-radius: 50%;
+}
+#flicker .flicker1,
+#flicker .flicker2{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 0 0 30px 10px yellow;
+}
+#flicker .flicker2{
+	display: none;
+}
+/* 提示信息 */
+.Notice{
+	position: absolute;
+	width: 135px;
+	height: 50px;
+	padding:5px 0px;
+	line-height: 145%;
+	border-radius: 5px;
+	font-size: 13px;
+	color: yellow;	
+	text-align: center;	
+	border: 1px solid rgba(255,255,255,1);
+	background-color: rgba(0,0,0,.7);
+	white-space:nowrap;
+}
+.Notice:before,.Notice:after{
+	position: absolute;
+	content: "";
+	border: 8px solid transparent;
+}
+/* 箭头位置  top*/
+.NoticeTop:before{
+	border-bottom-width: 20px;
+	border-bottom-color: white;
+	left: 2px;
+	top: -28px;
+}
+.NoticeTop:after{
+	border-bottom-width: 16px;
+	border-bottom-color: black;
+	left: 2px;
+	top: -22px;
+}
+/* 箭头位置  right*/
+.NoticeRight:before{
+	border-bottom-width: 20px;
+	border-bottom-color: white;
+	right: 2px;
+	top: -28px;
+}
+.NoticeRight:after{
+	border-bottom-width: 16px;
+	border-bottom-color: black;
+	right: 2px;
+	top: -22px;
+}
+/* 箭头位置  bottom*/
+.NoticeBottom:before{
+	border-top-width: 20px;
+	border-top-color: #fff;
+	right: 2px;
+	bottom: -28px;
+}
+.NoticeBottom:after{
+	border-top-width: 20px;
+	border-top-color: black;
+	right: 2px;
+	bottom: -24px;
+}
+/* 箭头位置  left*/
+.NoticeLeft:before{
+	border-top-width: 20px;
+	border-top-color: #fff;
+	left: 2px;
+	bottom: -28px;
+}
+.NoticeLeft:after{
+	border-top-width: 20px;
+	border-top-color: black;
+	left: 2px;
+	bottom: -24px;
+}

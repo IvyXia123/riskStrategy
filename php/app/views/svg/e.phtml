@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <script>
+            var circle_r = window.screen.availWidth > window.screen.availHeight ? 50 * window.screen.availWidth / 1440 : 50 * window.screen.availHeight / 1440;
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <link rel="stylesheet" type="text/css" href="/js/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/htable.css">
+        <script type="text/javascript" src="/js/d3.v4.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/semantic/semantic.min.js"></script>
+        <script type="text/javascript" src="/js/tools.js"></script>
+        <script type="text/javascript" src="/js/global.js"></script>
+        <script type="text/javascript" src="/js/htable.js"></script>
+        <style>
+            html,body{margin: 0;padding: 0;overflow: hidden;background-color: #ccc}
+            #main-content{width:100%;background-color: #135586}
+        </style>
+
+    </head>
+    <body>
+        <div id="toolbar" style="padding:5px;width: 100%;height:40px;text-align: center;background-color: #eee">
+            <input type="button" value="Flows" style="width:80px;height:30px" onclick="show('flows')"/>
+<!--            <input type="button" value="AddFlow" style="width:80px;height:30px" onclick="show('addFlow')"/>
+            <input type="button" value="AddNode" style="width:80px;height:30px" onclick="show('')"/>
+            <input type="button" value="Edges" style="width:80px;height:30px" onclick="show('edges')"/>-->
+            <input type="button" value="Submit" style="width:80px;height:30px" onclick="submitFlow()"/>
+<!--            <input type="button" value="Demo" style="width:80px;height:30px" onclick="show('demo')"/>-->
+        </div>
+        <div id='main-content'>
+
+        </div>
+    </body>
+    <script type="text/javascript">
+
+        var page = {};
+        var edges = [];
+        $("#main-content").height(window.innerHeight - $("#toolbar").height() - 10);
+
+        function show(windowName) {
+            if (page[windowName]) {//if loaded return
+                page[windowName].init();
+                return;
+            }
+
+            $.ajax({
+                url: "/pages/" + windowName,
+                async: true,
+                type: 'POST',
+                success: function (t, s) {
+                    try {
+                        $("#main-content").append(t);
+                        page[windowName].init();
+                    } catch (e) {
+                        console.debug(e);
+                    }
+                }
+            });
+        }
+
+        function submitFlow() {
+
+
+            var cs = [];
+            var svgWidth = $("svg").first().width();
+            var svgHeight = $("svg").first().height();
+
+            $("circle").each(function () {
+                
+                var x1 = $(this).attr("cx");
+                var y1 = $(this).attr("cy");
+                var r = $(this).attr("r");
+                
+                var css = $("circle");
+                
+                var minx = x1,miny = y1;
+                for (var i = 0; i < css.length; i++) {
+                    if(Math.abs(x1 - $(css[i]).attr("cx")) < r){
+                        minx = miny > $(css[i]).attr("cy") ? $(css[i]).attr("cx") : minx;
+                    }else if(Math.abs(y1 - $(css[i]).attr("cy")) < r){
+                        miny = minx > $(css[i]).attr("cx") ? $(css[i]).attr("cy") : miny;
+                    }
+                }
+                
+                x1 = minx;
+                y1 = miny;
+                
+                var c = {};
+                c.rcx = parseFloat(x1 / svgWidth).toFixed(3);
+                c.rcy = parseFloat(y1 / svgHeight).toFixed(3);
+                
+                var text = $(this).next().text();
+                
+                if (text.indexOf("-") > 0) {
+                    c.text = $(this).next().text();
+                } else {
+                    c.text = $(this).attr("id").split("-")[1] + "-" + text;
+                }
+                cs.push(c);
+            });
+            console.debug(cs);
+
+            $.ajax({
+                url: "/insert/flowDetails",
+                async: true,
+                data: {fid: f1.flowId, cs: JSON.stringify(cs)}, //, edges:JSON.stringify(f3.edges)
+                type: 'POST',
+                success: function (text, textStatus) {
+                    try {
+                        alert(text);
+//                        var o = jQuery.parseJSON(text);
+//                        f1.createTable(o.message);
+                    } catch (e) {
+
+                    }
+                }
+            });
+        }
+
+    </script>
+</html>

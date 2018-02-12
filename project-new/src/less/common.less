@@ -1,0 +1,105 @@
+*{box-sizing: border-box;}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+  margin:0;
+  padding:0;
+}
+h1,h2,h3,h4,h5,h6,em,i {
+  font-weight:100;
+  font-style:normal;
+}
+ul,ol,li {
+  list-style-type:none;
+}
+a {
+  color:#666;
+  text-decoration:none;
+  outline:0;
+}
+a:hover {
+  text-decoration:none;
+}
+td.rule-tools{
+  position: relative;
+  overflow: hidden;
+  width: 138px;
+  font-size: 0;
+  color: #333;
+}
+
+.clearfix:after{
+  centent:"";//设置内容为空
+  height:0;//高度为0
+  line-height:0;//行高为0
+  display:block;//将文本转为块级元素
+  visibility:hidden;//将元素隐藏
+  clear:both//清除浮动
+}
+.clearfix{
+  zoom:1; //为了兼容IE
+}
+.pointer{
+    cursor: pointer;
+}
+
+@lightGray:#eeeff0;
+@lightBlue:#d3dce6;
+@lightPurple:#b4c8e7;
+@darkBlue:#2060f1;
+@riskHeaderBg:#d5dde7;
+@riskContentBg:#fbfcfd;
+@grade:#26a425;
+@white:#fff;
+
+.w(@px){
+  width:@px;
+}
+.h(@px){
+  height:@px;
+}
+.l-h(@px){
+  line-height:@px;
+}
+.f-s(@px){
+  font-size:@px;
+}
+.b-r(@px){
+  border-radius:@px;
+}
+.p(@px){
+  padding:@px;
+}
+
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em; height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+// icon 按钮
+.icon-hover{
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #eee;
+    transition: all .3s;
+    cursor: pointer;
+    &:hover{
+        color: #fff !important;
+        background: #34b2c9 !important;
+        transform: scale(1.2) !important;
+        box-shadow: 0 0 8px 0px #bdbaba;
+    }
+    .icon{
+        width: 100%;
+        height:100%;
+        padding: 7px;
+    }
+}

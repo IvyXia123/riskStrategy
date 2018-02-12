@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1nCQCnDr3Nt3GKDVeBmKGe2Y"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            var obj = {};
+            var max = 1600;
+            var ccc = 0;
+            window.onload = function () {
+                cityRandoms();
+            };
+
+            function fn(citys) {
+                console.info(++ccc);
+                console.info(citys.randoms.length);
+                citys.randoms = JSON.stringify(citys.randoms);
+                $.ajax({
+                    url: "/insert/cityCoords",
+                    async: true,
+                    data: citys,
+                    type: 'POST',
+                    success: function (text, textStatus) {
+                        try {
+                            console.info("--" + text);
+                        } catch (e) {
+                            console.error(e);
+                        }
+                    }
+                });
+            }
+
+            function cityRandoms() {
+                $.getJSON('/cityCoordinates.json', function (res) {
+                    var obj = res;
+
+                    for (var i = 0; i < obj.length; i++) {
+                        var val = obj[i].values;
+                        for (var n = 0; n < val.length; n++) {
+
+                            val[n]["province"] = obj[i]["province"];
+                            maprovince(val[n], fn);
+                        }
+
+                    }
+                });
+            }
+
+
+            function getRandom() {
+                return Math.random();
+            }
+
+            function maprovince(citys, fn) {
+//                var map = new BMap.Map("allmap");
+//                map.centerAndZoom(new BMap.Point(citys.lng, citys.lat), 1);
+//                map.enableScrollWheelZoom();
+                var bdary = new BMap.Boundary();
+
+                bdary.get(citys.city, function (rs) {       //获取行政区域
+//                    map.clearOverlays();        //清除地图覆盖物       
+                    var count = rs.boundaries.length; //行政区域的点有多少个
+                    if (count === 0) {
+                        alert('未能获取当前输入行政区域');
+                        return;
+                    }
+                    var pointArray = [];
+                    for (var i = 0; i < 1; i++) {
+                        var ply = new BMap.Polygon(rs.boundaries[i]); //建立多边形覆盖物
+//                        map.addOverlay(ply);  //添加覆盖物
+                        pointArray = pointArray.concat(ply.getPath());
+//                        map.setViewport(pointArray);
+                        var minX = citys.lng, minY = citys.lat, x = 0, y = 0, pt = null;
+
+                        for (var i = 0; i < 2000; i++) {
+                            var yy = i % 4;
+                            if (citys.randoms && citys.randoms.length >= max) {
+                                break;
+                            } else {
+                                if (yy == 0) {
+                                    x = minX + getRandom();
+                                    y = minY + getRandom();
+                                } else if (yy == 1) {
+                                    x = minX + getRandom();
+                                    y = minY - getRandom();
+                                } else if (yy == 2) {
+                                    x = minX - getRandom();
+                                    y = minY - getRandom();
+                                } else if (yy == 3) {
+                                    x = minX - getRandom();
+                                    y = minY + getRandom();
+                                }
+
+                                pt = new BMap.Point(x, y);
+
+                                if (BMapLib.GeoUtils.isPointInPolygon(pt, ply)) {
+                                    if (!citys.randoms) {
+                                        citys.randoms = [];
+                                    }
+                                    citys.randoms.push(pt.lng);
+                                    citys.randoms.push(pt.lat);
+//                                    var marker = marker = new BMap.Marker(new BMap.Point(x, y));
+//                                    map.addOverlay(marker);
+
+                                    //console.info("@@@@@");
+                                } else {
+                                    //console.info("$$$$$");
+                                }
+                            }
+                        }
+                        //divInfo.innerHTML = res;
+                    }
+                    // map.setViewport(pointArray);    //调整视野  
+                    //addlabel();
+                    //console.info(citys.randoms.length);
+                    if (citys.randoms.length < max) {
+                        //console.info("<300 call again");
+                        //console.info("#####");
+                        maprovince(citys, fn);
+                    }else{
+                        //console.info(citys.randoms.length + "__" + max);
+                        fn(citys);
+                    }
+//                    if (fn) {
+//                        fn(citys);
+//                    }
+
+                });
+            }
+
+        </script>
+        <style type="text/css">
+            #result
+            {
+                height: 426px;
+                width: 610px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="allmap" style="width:1000px;height:500px"></div>
+        <div id="divInfo"></div>
+    </body>
+</html>
